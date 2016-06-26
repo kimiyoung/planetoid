@@ -30,7 +30,7 @@ def comp_accu(tpy, ty):
 NAMES = ['x', 'y', 'tx', 'ty', 'allx', 'graph']
 OBJECTS = []
 for i in range(len(NAMES)):
-    OBJECTS.append(cPickle.load(open("dump/ind.{}.{}".format(DATASET, NAMES[i]))))
+    OBJECTS.append(cPickle.load(open("data/ind.{}.{}".format(DATASET, NAMES[i]))))
 x, y, tx, ty, allx, graph = tuple(OBJECTS)
 
 m = model(args)                                                 # initialize the model
