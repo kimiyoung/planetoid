@@ -49,6 +49,12 @@ The input to the inductive model contains:
 
 Let n be the number of both labeled and unlabeled training instances. These n instances should be indexed from 0 to n - 1 in `graph` with the same order as in `allx`.
 
+### Preprocessed datasets
+
+Datasets for Citeseet, Cora, and Pubmed are available in the directory `data`, in a preprocessed format stored as numpy/scipy files.
+
+The dataset for DIEL is availabel at http://www.cs.cmu.edu/~lbing/data/emnlp-15-diel/emnlp-15-diel.tar.gz. We also provide a much more succinct version of the dataset that only contains necessary files and some (not very well-organized) pre-processing code here at http://cs.cmu.edu/~zhiliny/data/diel_data.tar.gz.
+
 ## Hyper-parameter tuning
 
 Refer to `test_ind.py` and `test_trans.py` for the definition of different hyper-parameters (passed as arguments). It is also important to tune the numbers of iterations for optimization, including
