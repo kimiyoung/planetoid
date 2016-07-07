@@ -55,6 +55,8 @@ Datasets for Citeseet, Cora, and Pubmed are available in the directory `data`, i
 
 The dataset for DIEL is availabel at http://www.cs.cmu.edu/~lbing/data/emnlp-15-diel/emnlp-15-diel.tar.gz. We also provide a much more succinct version of the dataset that only contains necessary files and some (not very well-organized) pre-processing code here at http://cs.cmu.edu/~zhiliny/data/diel_data.tar.gz.
 
+The NELL dataset can be found here at http://www.cs.cmu.edu/~zhiliny/data/nell_data.tar.gz.
+
 ## Hyper-parameter tuning
 
 Refer to `test_ind.py` and `test_trans.py` for the definition of different hyper-parameters (passed as arguments). It is also important to tune the numbers of iterations for optimization, including
