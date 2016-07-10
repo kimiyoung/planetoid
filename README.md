@@ -49,8 +49,19 @@ The input to the inductive model contains:
 
 Let n be the number of both labeled and unlabeled training instances. These n instances should be indexed from 0 to n - 1 in `graph` with the same order as in `allx`.
 
+### Preprocessed datasets
+
+Datasets for Citeseet, Cora, and Pubmed are available in the directory `data`, in a preprocessed format stored as numpy/scipy files.
+
+The dataset for DIEL is available at http://www.cs.cmu.edu/~lbing/data/emnlp-15-diel/emnlp-15-diel.tar.gz. We also provide a much more succinct version of the dataset that only contains necessary files and some (not very well-organized) pre-processing code here at http://cs.cmu.edu/~zhiliny/data/diel_data.tar.gz.
+
+The NELL dataset can be found here at http://www.cs.cmu.edu/~zhiliny/data/nell_data.tar.gz.
+
+In addition to `x`, `y`, `allx`, and `graph` as described above, the preprocessed datasets also include:
+- `tx`, the feature vectors of the test instances,
+- `ty`, the one-hot labels of the test instances.
+
 ## Hyper-parameter tuning
 
-Refer to `test_ind.py` and `test_trans.py` for the definition of different hyper-parameters (passed as arguments). It is also important to tune the numbers of iterations for optimization, including
-`init_ier_label`, `init_iter_graph`, `iter_graph`, `iter_inst`, and `iter_label`.
+Refer to `test_ind.py` and `test_trans.py` for the definition of different hyper-parameters (passed as arguments). Hyper-parameters are tuned by randomly shuffle the training/test split (i.e., randomly shuffling the indices in `x`, `y`, `tx`, `ty`, and `graph`). For the DIEL dataset, we tune the hyper-parameters on one of the ten runs, and then keep the same hyper-parameters for all the ten runs.
 
