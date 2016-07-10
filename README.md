@@ -62,6 +62,8 @@ In addition to `x`, `y`, `allx`, and `graph` as described above, the preprocesse
 - `ty`, the one-hot labels of the test instances,
 - `test.index`, the indices of test instances in `graph`, for the inductive setting.
 
+The indices of test instances in `graph` for the transductive setting are from `#x` to `#x + #tx - 1`, with the same order as in `tx`.
+
 You can use `cPickle.load(open(filename))` to load the numpy/scipy objects `x`, `y`, `tx`, `ty`, `allx`, and `graph`. `test.index` is stored as a text file.
 
 ## Hyper-parameter tuning
