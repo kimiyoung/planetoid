@@ -8,6 +8,8 @@ This is an implementation of Planetoid, a graph-based semi-supervised learning m
 Zhilin Yang, William W. Cohen, Ruslan Salakhutdinov.
 ICML 2016.
 
+Please cite the above paper if you use the datasets or code in this repo.
+
 ## Run the demo
 
 We include the Citeseer dataset in the directory `data`, where the data structures needed are pickled.
