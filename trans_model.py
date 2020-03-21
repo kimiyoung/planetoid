@@ -164,12 +164,12 @@ class trans_model(base_model):
         for i in range(init_iter_label):
             gx, gy = next(self.label_generator)
             loss = self.g_fn(gx, gy)
-            print 'iter label', i, loss
+            print('iter label', i, loss) 
 
         for i in range(init_iter_graph):
             gx, gy = next(self.graph_generator)
             loss = self.g_fn(gx, gy)
-            print 'iter graph', i, loss
+            print('iter graph', i, loss) 
 
     def step_train(self, max_iter, iter_graph, iter_inst, iter_label):
         """a training step. Iteratively sample batches for three loss functions.

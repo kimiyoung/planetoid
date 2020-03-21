@@ -1,8 +1,9 @@
 
 import lasagne
-import cPickle
+import pickle
 import random
 import numpy as np
+
 
 class base_model(object):
     """the base model for both transductive and inductive learning."""
@@ -11,15 +12,18 @@ class base_model(object):
         """
         args (an object): contains the arguments used for initalizing the model.
         """
+        np.random.seed(13)
+        random.seed(13)
+
         self.embedding_size = args.embedding_size
         self.learning_rate = args.learning_rate
         self.batch_size = args.batch_size
         self.neg_samp = args.neg_samp
         self.model_file = args.model_file
-        
+
         self.window_size = args.window_size
         self.path_size = args.path_size
-        
+
         self.g_batch_size = args.g_batch_size
         self.g_learning_rate = args.g_learning_rate
         self.g_sample_size = args.g_sample_size
@@ -28,10 +32,8 @@ class base_model(object):
         self.update_emb = args.update_emb
         self.layer_loss = args.layer_loss
 
+        # TODO: replace lasagne
         lasagne.random.set_rng(np.random)
-        np.random.seed(13)
-
-        random.seed(13)
 
         self.inst_generator = self.gen_train_inst()
         self.graph_generator = self.gen_graph()
@@ -42,9 +44,9 @@ class base_model(object):
         """
 
         for i, l in enumerate(self.l):
-            fout = open("{}.{}".format(self.model_file, i), 'w')
+            fout = open("{}.{}".format(self.model_file, i), 'wb')
             params = lasagne.layers.get_all_param_values(l)
-            cPickle.dump(params, fout, cPickle.HIGHEST_PROTOCOL)
+            pickle.dump(params, fout, pickle.HIGHEST_PROTOCOL)
             fout.close()
 
     def load_params(self):
@@ -52,7 +54,7 @@ class base_model(object):
         """
         for i, l in enumerate(self.l):
             fin = open("{}.{}".format(self.model_file, i))
-            params = cPickle.load(fin)
+            params = pickle.load(fin)
             lasagne.layers.set_all_param_values(l, params)
             fin.close()
 
@@ -71,6 +73,3 @@ class base_model(object):
         """
         self.init_train(init_iter_label, init_iter_graph)
         self.step_train(max_iter, iter_graph, iter_inst, iter_label)
-
-
-

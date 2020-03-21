@@ -1,0 +1,4 @@
+lasagne==0.2.dev1
+theano
+scipy
+numpy
